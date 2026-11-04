@@ -14,9 +14,12 @@ console.log(exampleName, exampleYears, exampleIsOpen);
 console.log(typeof exampleName);     // typeof tells you the type
 
 // TODO: Make 3 variables for YOUR truck: a name, a number, and a true/false.
+const myTruckName = "Pizza Cruiser";
+const myYearsOpen = 5;
+const myIsOpen = true;
 // TODO: console.log them, and log the typeof each one.
-
-
+console.log(myTruckName, myYearsOpen, myIsOpen);
+console.log(typeof myTruckName, typeof myYearsOpen, typeof myIsOpen);
 // ---------- Step 2: An array (a list) ----------
 // Example:
 const exampleMenu = ["taco", "burrito", "nachos"];
@@ -24,8 +27,11 @@ console.log(exampleMenu[0]);         // first item: index 0
 console.log(exampleMenu.length);     // how many items
 
 // TODO: Make an array of 3 or more things YOUR truck sells.
+const myMenu = ["Cheese Pizza", "Caesar Salad", "Honey BBQ Wings"]
 // TODO: Log the first item, the last item, and how many items there are.
-
+console.log(myMenu[0]);
+console.log(myMenu[1]);
+console.log(myMenu.length);
 
 // ---------- Step 3: An object (one thing with details) ----------
 // Example:
@@ -34,7 +40,10 @@ console.log(exampleItem.name);       // dot notation
 console.log(exampleItem["price"]);   // bracket notation
 
 // TODO: Make an object for one of YOUR menu items (name, price, spicy).
+const myItem = {name: "Cheese Pizza", price: 7.99, spicy: false};
 // TODO: Log one property with dot notation and one with bracket notation.
+console.log(myItem.name);
+console.log(myItem["price"]);
 
 
 // ---------- Step 4: A function ----------
@@ -45,8 +54,11 @@ function addTip(price, tip) {
 console.log(addTip(10, 2));          // 12
 
 // TODO: Write a function orderTotal(price, quantity) that RETURNS price * quantity.
+function orderTotal(price, quantity) {
+  return price * quantity;
+}
 // TODO: Before you run it, guess what orderTotal(4.5, 3) gives. Then log it.
-
+console.log(orderTotal(4.5, 3));
 
 // ---------- Extra practice (if you finish early) ----------
 // 1. Change your menu item's price AFTER you made the object, then log it again.
