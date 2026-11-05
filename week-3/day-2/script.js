@@ -35,6 +35,7 @@ const exampleArrowTruck = {
 console.log("Step 2:", exampleArrowTruck.describe());   // the name is missing!
 
 // TODO: Add an arrow-function version to YOUR truck and log it.
+
 // TODO: Write one sentence in a comment: what went wrong with the arrow version?
 // (Hint: arrow functions don't get their own "this".)
 
