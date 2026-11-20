@@ -8,20 +8,27 @@ const statusText = document.getElementById("status");
 const recipeArea = document.getElementById("recipe");
 
 
-async function loadRecipe() {
+async function loadRecipe(){
+
+  try {
   const url = "https://dummyjson.com/recipes/" + input.value;
 
   recipeArea.textContent = "";   // clear the old recipe first
 
   // ---------- Step 2 goes here (loading message) ----------
 
+  statusText.textContent = "Loading... ";
 
   const response = await fetch(url);
 
   // ---------- Step 3 goes here (no recipe with that number) ----------
-
+   if (!response.ok){
+    statusText.textContent = "No recipe with that number. Try 1-50.";
+    return;
+  }
 
   const recipe = await response.json();
+  statusText.textContent = "";
   console.log(recipe);   // look at ALL the fields in the console, then pick a few
 
   // ---------- Step 1: show a few fields ----------
@@ -40,8 +47,25 @@ async function loadRecipe() {
   //   a <p> with the cuisine:           "Cuisine: Italian"
   //   a <p> with the prep time:         "Ready in 20 minutes"   (recipe.prepTimeMinutes)
   // Each one: createElement, textContent, card.appendChild.
-}
 
+
+  const cuisine = document.createElement("h2");
+  cuisine.className = "fs-3 h4";
+  cuisine.textContent = "Cuisine: " + recipe.cuisine;
+  card.appendChild(cuisine);
+
+   const ready = document.createElement("h2");
+  ready.className = "fs-3 h4";
+  ready.textContent = "Ready in: " + recipe.cookTimeMinutes + " Minutes";
+  card.appendChild(ready);
+
+  recipeArea.appendChild(card);
+
+
+} catch(error) {
+  statusText.textContent = "Can't reach the Recipe Server. Check your internet and try again";
+}
+}
 button.addEventListener("click", loadRecipe);
 
 
